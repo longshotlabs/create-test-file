@@ -1,0 +1,51 @@
+{
+    "name": "create-test-file",
+    "displayName": "Create Test File",
+    "description": "Adds the option to create a test file for a JavaScript file by right-clicking on it",
+    "version": "1.0.0",
+    "publisher": "aldeed",
+    "engines": {
+        "vscode": "^1.19.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/aldeed/create-test-file.git"
+    },
+    "homepage": "https://github.com/aldeed/create-test-file",
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:extension.createTestFileFromMenu"
+    ],
+    "main": "./out/extension",
+    "contributes": {
+        "commands": [
+            {
+                "command": "extension.createTestFileFromMenu",
+                "title": "Create Test File"
+            }
+        ],
+        "menus": {
+            "explorer/context": [
+                {
+                    "command": "extension.createTestFileFromMenu",
+                    "group": "test"
+                }
+            ]
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "npm run compile && node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^2.6.2",
+        "vscode": "^1.1.10",
+        "@types/node": "^7.0.43",
+        "@types/mocha": "^2.2.44"
+    }
+}
